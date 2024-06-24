@@ -3,5 +3,13 @@
         <WeatherCard />
     </div>
 </template>
-<script></script>
+<script setup>
+import { useWeatherStore } from '~/store/Weather'
+
+onMounted(async () => {
+    const weatherStore = await useWeatherStore()
+    weatherStore.getWeatherData()
+})
+
+</script>
 <style></style>

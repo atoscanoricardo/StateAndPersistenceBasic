@@ -5,14 +5,15 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
-  modules: [
+  modules: [    
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         // @ts-expect-error
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
-    //...
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',    
   ],
   vite: {
     vue: {
